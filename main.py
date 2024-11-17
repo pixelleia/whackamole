@@ -37,12 +37,12 @@ def main():
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     #i,j = event.pos
                     #print(f"mouse: {i}, {j} ... image: {mole_rect.x}, {mole_rect.y}")
-                    #if mole_rect.collidepoint(event.pos):
-                        #draw_grid(screen, color)
-                    x = random.randrange(0, 20)  * 32
-                    y = random.randrange(0, 16) * 32
-                    mole_rect = mole_image.get_rect(topleft=(x, y))
-                    screen.blit(mole_image, mole_rect)
+                    if mole_rect.collidepoint(event.pos):
+                        draw_grid(screen, color)
+                        x = random.randrange(0, 20)  * 32
+                        y = random.randrange(0, 16) * 32
+                        mole_rect = mole_image.get_rect(topleft=(x, y))
+                        screen.blit(mole_image, mole_rect)
 
             pygame.display.flip()
             clock.tick(60)
